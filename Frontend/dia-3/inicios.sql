@@ -36,3 +36,32 @@ INSERT INTO alumnos (id,nombre,apellido_paterno,apellido_materno,correo,fecha_na
 (DEFAULT, 'Roxana', 'Juarez', 'Rodriguez', 'rjuarez@gmail.com', '2005-02-09', false);
 
 SELECT * FROM alumnos--todos los registros
+
+
+select * from alumnos where nombre like '%E%' --sencible a mayusculas
+
+select * from alumnos where nombre ilike '%E%' -- no sencible a mayusculas solo con postgres
+
+
+select * from alumnos where correo ilike'%hotmail%' or correo ilike '%gmail%';
+
+CREATE TABLE direcciones(
+id SERIAL PRIMARY KEY,
+calle TEXT NOT NULL,
+numero  INT NOT NULL,
+referencia TEXT NULL,
+alumno_id INT NOT NULL,
+CONSTRAINT fk_direcciones_alumno FOREIGN KEY (alumno_id)
+REFERENCES alumnos(id)
+
+
+
+);
+
+
+
+SELECT * FROM direcciones WHERE calle ILIKE '%av%' AND referencia is NULL OR calle ILIKE '%calle%' AND referencia is NULL
+
+
+
+
