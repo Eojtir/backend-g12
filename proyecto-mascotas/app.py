@@ -2,6 +2,7 @@ from flask import Flask
 from db import conexion
 from flask_migrate import Migrate
 from models.usuarios_model import UsuarioModel
+from models.mascotas_model import MascotasModel
 
 
 app = Flask(__name__)
