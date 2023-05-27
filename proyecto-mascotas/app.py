@@ -5,6 +5,7 @@ from flask_migrate import Migrate
 from models.usuarios_model import UsuarioModel
 from models.mascotas_model import MascotasModel
 from controllers.usuario_controller import UsuariosController
+from controllers.mascotas_controller import MascotasController
 
 
 app = Flask(__name__)
@@ -16,6 +17,7 @@ conexion.init_app(app)
 Migrate(app, conexion)
 
 api.add_resource(UsuariosController,'/usuarios','/otra_ruta')#ambos aputan al mismo controlador
+api.add_resource(MascotasController,'/mascotas')
 
 if __name__ == '__main__':
 
