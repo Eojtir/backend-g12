@@ -21,9 +21,7 @@ def index():
     return("hello word")
 
 @app.route('/products',methods =["GET","POST"])
-def products():
-    if request.method == "GET":
-        return("GET")
+
     if request.method == "POST":
         json = request.json
         record = ProductsModel(
@@ -44,3 +42,6 @@ def products():
 
 if __name__ == '__main__':
     app.run(debug=True)
+def products():
+    if request.method == "GET":
+        return("GET")
